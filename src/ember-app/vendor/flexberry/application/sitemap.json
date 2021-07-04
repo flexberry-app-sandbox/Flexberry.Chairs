@@ -1,0 +1,29 @@
+﻿{
+  "applicationCaption": "Chairs",
+  "applicationTitle": "Chairs",
+  "items": [
+    {
+      "link": null,
+      "menuName": "chairs",
+      "caption": "Chairs",
+      "title": "Chairs",
+      "children": [
+        {
+          "link": "i-i-s-chairs-chair-type-l",
+          "menuName": null,
+          "caption": "Chair type",
+          "title": "",
+          "children": null
+        },
+        {
+          "link": "i-i-s-chairs-chair-l",
+          "menuName": null,
+          "caption": "Chair",
+          "title": "",
+          "children": null
+        }
+      ]
+    }
+  ],
+  "mobile": true
+}

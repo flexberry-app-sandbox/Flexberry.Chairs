@@ -1,0 +1,15 @@
+﻿{
+  "newForm": "i-i-s-chairs-chair-e",
+  "editForm": "i-i-s-chairs-chair-e",
+  "external": false,
+  "caption": "Chair",
+  "name": "IISChairsChairL",
+  "className": "ChairL",
+  "attrs": [],
+  "projections": [
+    {
+      "modelName": "i-i-s-chairs-chair",
+      "modelProjection": "ChairL"
+    }
+  ]
+}

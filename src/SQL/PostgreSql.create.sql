@@ -1,0 +1,240 @@
+﻿
+
+
+
+
+CREATE TABLE ChairLeg (
+
+ primaryKey UUID NOT NULL,
+
+ Number INT NULL,
+
+ Chair_m0 UUID NOT NULL,
+
+ PRIMARY KEY (primaryKey));
+
+
+
+CREATE TABLE ChairType (
+
+ primaryKey UUID NOT NULL,
+
+ Name VARCHAR(255) NULL,
+
+ PRIMARY KEY (primaryKey));
+
+
+
+CREATE TABLE Chair (
+
+ primaryKey UUID NOT NULL,
+
+ SerialNumber VARCHAR(255) NULL,
+
+ ChairType_m0 UUID NULL,
+
+ PRIMARY KEY (primaryKey));
+
+
+
+CREATE TABLE STORMNETLOCKDATA (
+
+ LockKey VARCHAR(300) NOT NULL,
+
+ UserName VARCHAR(300) NOT NULL,
+
+ LockDate TIMESTAMP(3) NULL,
+
+ PRIMARY KEY (LockKey));
+
+
+
+CREATE TABLE STORMSETTINGS (
+
+ primaryKey UUID NOT NULL,
+
+ Module VARCHAR(1000) NULL,
+
+ Name VARCHAR(255) NULL,
+
+ Value TEXT NULL,
+
+ "User" VARCHAR(255) NULL,
+
+ PRIMARY KEY (primaryKey));
+
+
+
+CREATE TABLE STORMAdvLimit (
+
+ primaryKey UUID NOT NULL,
+
+ "User" VARCHAR(255) NULL,
+
+ Published BOOLEAN NULL,
+
+ Module VARCHAR(255) NULL,
+
+ Name VARCHAR(255) NULL,
+
+ Value TEXT NULL,
+
+ HotKeyData INT NULL,
+
+ PRIMARY KEY (primaryKey));
+
+
+
+CREATE TABLE STORMFILTERSETTING (
+
+ primaryKey UUID NOT NULL,
+
+ Name VARCHAR(255) NOT NULL,
+
+ DataObjectView VARCHAR(255) NOT NULL,
+
+ PRIMARY KEY (primaryKey));
+
+
+
+CREATE TABLE STORMWEBSEARCH (
+
+ primaryKey UUID NOT NULL,
+
+ Name VARCHAR(255) NOT NULL,
+
+ "Order" INT NOT NULL,
+
+ PresentView VARCHAR(255) NOT NULL,
+
+ DetailedView VARCHAR(255) NOT NULL,
+
+ FilterSetting_m0 UUID NOT NULL,
+
+ PRIMARY KEY (primaryKey));
+
+
+
+CREATE TABLE STORMFILTERDETAIL (
+
+ primaryKey UUID NOT NULL,
+
+ Caption VARCHAR(255) NOT NULL,
+
+ DataObjectView VARCHAR(255) NOT NULL,
+
+ ConnectMasterProp VARCHAR(255) NOT NULL,
+
+ OwnerConnectProp VARCHAR(255) NULL,
+
+ FilterSetting_m0 UUID NOT NULL,
+
+ PRIMARY KEY (primaryKey));
+
+
+
+CREATE TABLE STORMFILTERLOOKUP (
+
+ primaryKey UUID NOT NULL,
+
+ DataObjectType VARCHAR(255) NOT NULL,
+
+ Container VARCHAR(255) NULL,
+
+ ContainerTag VARCHAR(255) NULL,
+
+ FieldsToView VARCHAR(255) NULL,
+
+ FilterSetting_m0 UUID NOT NULL,
+
+ PRIMARY KEY (primaryKey));
+
+
+
+CREATE TABLE UserSetting (
+
+ primaryKey UUID NOT NULL,
+
+ AppName VARCHAR(256) NULL,
+
+ UserName VARCHAR(512) NULL,
+
+ UserGuid UUID NULL,
+
+ ModuleName VARCHAR(1024) NULL,
+
+ ModuleGuid UUID NULL,
+
+ SettName VARCHAR(256) NULL,
+
+ SettGuid UUID NULL,
+
+ SettLastAccessTime TIMESTAMP(3) NULL,
+
+ StrVal VARCHAR(256) NULL,
+
+ TxtVal TEXT NULL,
+
+ IntVal INT NULL,
+
+ BoolVal BOOLEAN NULL,
+
+ GuidVal UUID NULL,
+
+ DecimalVal DECIMAL(20,10) NULL,
+
+ DateTimeVal TIMESTAMP(3) NULL,
+
+ PRIMARY KEY (primaryKey));
+
+
+
+CREATE TABLE ApplicationLog (
+
+ primaryKey UUID NOT NULL,
+
+ Category VARCHAR(64) NULL,
+
+ EventId INT NULL,
+
+ Priority INT NULL,
+
+ Severity VARCHAR(32) NULL,
+
+ Title VARCHAR(256) NULL,
+
+ Timestamp TIMESTAMP(3) NULL,
+
+ MachineName VARCHAR(32) NULL,
+
+ AppDomainName VARCHAR(512) NULL,
+
+ ProcessId VARCHAR(256) NULL,
+
+ ProcessName VARCHAR(512) NULL,
+
+ ThreadName VARCHAR(512) NULL,
+
+ Win32ThreadId VARCHAR(128) NULL,
+
+ Message VARCHAR(2500) NULL,
+
+ FormattedMessage TEXT NULL,
+
+ PRIMARY KEY (primaryKey));
+
+
+
+
+ ALTER TABLE ChairLeg ADD CONSTRAINT FK3f1ff8854222b18352a1f6e3c1a29397e006f8c9 FOREIGN KEY (Chair_m0) REFERENCES Chair; 
+CREATE INDEX Index3f1ff8854222b18352a1f6e3c1a29397e006f8c9 on ChairLeg (Chair_m0); 
+
+ ALTER TABLE Chair ADD CONSTRAINT FKa717faf3d2d457ba00915c28d8d35dbbb44a6ad3 FOREIGN KEY (ChairType_m0) REFERENCES ChairType; 
+CREATE INDEX Indexa717faf3d2d457ba00915c28d8d35dbbb44a6ad3 on Chair (ChairType_m0); 
+
+ ALTER TABLE STORMWEBSEARCH ADD CONSTRAINT FKc4378e39870eb056aec84088683297a01d2a6200 FOREIGN KEY (FilterSetting_m0) REFERENCES STORMFILTERSETTING; 
+
+ ALTER TABLE STORMFILTERDETAIL ADD CONSTRAINT FK921d16269835017e2a0d0e29ad6fb175454a70d0 FOREIGN KEY (FilterSetting_m0) REFERENCES STORMFILTERSETTING; 
+
+ ALTER TABLE STORMFILTERLOOKUP ADD CONSTRAINT FKce38ef0db3f01a53acaa49fed8853fb941ad47ba FOREIGN KEY (FilterSetting_m0) REFERENCES STORMFILTERSETTING; 
+

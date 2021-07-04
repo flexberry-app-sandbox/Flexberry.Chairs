@@ -1,0 +1,48 @@
+﻿{
+  "name": "IISChairsChairLeg",
+  "modelName": "i-i-s-chairs-chair-leg",
+  "className": "ChairLeg",
+  "nameSpace": "IIS.Chairs",
+  "parentModelName": null,
+  "parentClassName": null,
+  "attrs": [
+    {
+      "name": "number",
+      "type": "number",
+      "flexberryType": "int",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true,
+      "ordered": false
+    }
+  ],
+  "belongsTo": [
+    {
+      "polymorphic": false,
+      "presence": true,
+      "name": "chair",
+      "relatedTo": "i-i-s-chairs-chair",
+      "inverse": "chairLeg"
+    }
+  ],
+  "hasMany": [],
+  "projections": [
+    {
+      "name": "ChairLegE",
+      "modelName": "i-i-s-chairs-chair-leg",
+      "attrs": [
+        {
+          "name": "number",
+          "caption": "Number",
+          "hidden": false,
+          "index": 0
+        }
+      ],
+      "belongsTo": [],
+      "hasMany": []
+    }
+  ],
+  "stored": true,
+  "offline": true,
+  "external": false
+}

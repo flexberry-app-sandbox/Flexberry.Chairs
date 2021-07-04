@@ -1,0 +1,23 @@
+﻿{
+  "propertyLookup": [
+    {
+      "master": null,
+      "displayAttributeName": null,
+      "required": false,
+      "relationName": "ChairType",
+      "projection": "ChairTypeL",
+      "detailModelName": null
+    }
+  ],
+  "external": false,
+  "caption": "Chair",
+  "name": "IISChairsChairE",
+  "className": "ChairE",
+  "attrs": [],
+  "projections": [
+    {
+      "modelName": "i-i-s-chairs-chair",
+      "modelProjection": "ChairE"
+    }
+  ]
+}

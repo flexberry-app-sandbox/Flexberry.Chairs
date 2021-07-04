@@ -1,0 +1,120 @@
+﻿{
+  "name": "IISChairsChair",
+  "modelName": "i-i-s-chairs-chair",
+  "className": "Chair",
+  "nameSpace": "IIS.Chairs",
+  "parentModelName": null,
+  "parentClassName": null,
+  "attrs": [
+    {
+      "name": "serialNumber",
+      "type": "string",
+      "flexberryType": "string",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true,
+      "ordered": false
+    }
+  ],
+  "belongsTo": [
+    {
+      "polymorphic": false,
+      "presence": false,
+      "name": "chairType",
+      "relatedTo": "i-i-s-chairs-chair-type",
+      "inverse": null
+    }
+  ],
+  "hasMany": [
+    {
+      "name": "chairLeg",
+      "relatedTo": "i-i-s-chairs-chair-leg",
+      "inverse": "chair"
+    }
+  ],
+  "projections": [
+    {
+      "name": "ChairE",
+      "modelName": "i-i-s-chairs-chair",
+      "attrs": [
+        {
+          "name": "serialNumber",
+          "caption": "Serial number",
+          "hidden": false,
+          "index": 0
+        }
+      ],
+      "belongsTo": [
+        {
+          "lookupValue": "Name",
+          "lookupValueField": "name",
+          "relationName": "ChairType",
+          "belongsTo": [],
+          "hidden": false,
+          "attrs": [
+            {
+              "name": "name",
+              "caption": "Name",
+              "hidden": true,
+              "index": 2
+            }
+          ],
+          "index": 1,
+          "type": "standard",
+          "caption": "Chair type",
+          "name": "chairType",
+          "relatedTo": "i-i-s-chairs-chair-type",
+          "inverse": null
+        }
+      ],
+      "hasMany": [
+        {
+          "projectionName": "ChairLegE",
+          "caption": "Chair leg",
+          "name": "chairLeg",
+          "relatedTo": "i-i-s-chairs-chair-leg",
+          "inverse": null
+        }
+      ]
+    },
+    {
+      "name": "ChairL",
+      "modelName": "i-i-s-chairs-chair",
+      "attrs": [
+        {
+          "name": "serialNumber",
+          "caption": "Serial number",
+          "hidden": false,
+          "index": 0
+        }
+      ],
+      "belongsTo": [
+        {
+          "lookupValue": null,
+          "lookupValueField": null,
+          "relationName": "ChairType",
+          "belongsTo": [],
+          "hidden": false,
+          "attrs": [
+            {
+              "name": "name",
+              "caption": "Name",
+              "hidden": false,
+              "index": 1
+            }
+          ],
+          "index": -1,
+          "type": "default",
+          "caption": "Name",
+          "name": "chairType",
+          "relatedTo": "i-i-s-chairs-chair-type",
+          "inverse": null
+        }
+      ],
+      "hasMany": []
+    }
+  ],
+  "stored": true,
+  "offline": true,
+  "external": false
+}
